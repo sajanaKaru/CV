@@ -1,0 +1,577 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sajana Karunarathna - CV</title>
+  <style>
+    @import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@300;400;500;600;700;800&display=swap');
+
+    :root {
+      --primary: #1A303A;       /* Deep Slate */
+      --primary-accent: #2E5B70;/* Steel Blue */
+      --accent-soft: #EBF2F5;   /* Soft Ice Blue */
+      --text-dark: #23272A;
+      --text-muted: #5C656C;
+      --bg-sidebar: #F4F7F8;
+      --white: #FFFFFF;
+      --border: #DDE5E8;
+    }
+
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
+
+    body {
+      font-family: 'Plus Jakarta Sans', sans-serif;
+      background-color: #CBD5E1;
+      color: var(--text-dark);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 20px 0;
+    }
+
+    /* Standard A4 Sheet */
+    .page {
+      width: 210mm;
+      height: 297mm;
+      background: var(--white);
+      box-shadow: 0 10px 30px rgba(0, 0, 0, 0.12);
+      display: flex;
+      overflow: hidden;
+      position: relative;
+    }
+
+    /* Left Sidebar */
+    .sidebar {
+      width: 32%;
+      background-color: var(--bg-sidebar);
+      padding: 26px 18px;
+      border-right: 1px solid var(--border);
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    /* Dedicated Real Image Container */
+    .photo-container {
+      width: 100%;
+      max-width: 110px;
+      height: 110px;
+      margin: 0 auto;
+      border-radius: 50%;
+      border: 3px solid var(--primary-accent);
+      /* overflow: hidden; */
+      box-shadow: 0 4px 10px rgba(0,0,0,0.1);
+      background-color: var(--accent-soft);
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+
+    .profile-photo {
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      display: block;
+    }
+
+    .profile-block {
+      text-align: center;
+      border-bottom: 2px solid var(--border);
+      padding-bottom: 10px;
+    }
+
+    .name {
+      font-size: 15px;
+      font-weight: 800;
+      color: var(--primary);
+      line-height: 1.25;
+      letter-spacing: -0.3px;
+      text-transform: uppercase;
+    }
+
+    .title-badge {
+      display: block;
+      margin-top: 5px;
+      font-size: 7.8px;
+      font-weight: 700;
+      text-transform: uppercase;
+      letter-spacing: 0.5px;
+      background: var(--primary-accent);
+      color: var(--white);
+      padding: 3.5px 5px;
+      border-radius: 4px;
+      line-height: 1.25;
+    }
+
+    .section-title-sm {
+      font-size: 9px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      margin-bottom: 6px;
+      display: flex;
+      align-items: center;
+      gap: 6px;
+    }
+
+    .section-title-sm::after {
+      content: '';
+      flex: 1;
+      height: 1px;
+      background: var(--border);
+    }
+
+    /* Contact Details Styling */
+    .contact-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .contact-item {
+      font-size: 8.5px;
+      line-height: 1.3;
+    }
+
+    .contact-label {
+      display: block;
+      font-weight: 700;
+      font-size: 7.5px;
+      text-transform: uppercase;
+      color: var(--primary-accent);
+      margin-bottom: 1px;
+    }
+
+    .contact-value {
+      color: var(--text-dark);
+      word-break: break-word;
+    }
+
+    /* Social Links with SVG Icons */
+    .social-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 5px;
+      margin-top: 3px;
+    }
+
+    .social-item {
+      display: flex;
+      align-items: center;
+      gap: 6px;
+      font-size: 8.5px;
+      color: var(--text-dark);
+    }
+
+    .social-icon {
+      width: 12px;
+      height: 12px;
+      fill: var(--primary-accent);
+      flex-shrink: 0;
+    }
+
+    .skills-group {
+      display: flex;
+      flex-wrap: wrap;
+      gap: 4px;
+    }
+
+    .skill-tag {
+      font-size: 8.2px;
+      font-weight: 600;
+      background: var(--white);
+      border: 1px solid var(--border);
+      color: var(--primary);
+      padding: 2.5px 6px;
+      border-radius: 4px;
+    }
+
+    .sidebar-edu-list {
+      list-style: none;
+      display: flex;
+      flex-direction: column;
+      gap: 6px;
+    }
+
+    .sidebar-edu-item {
+      font-size: 8.5px;
+      line-height: 1.25;
+      color: var(--text-dark);
+    }
+
+    .sidebar-edu-title {
+      font-weight: 700;
+      color: var(--primary);
+    }
+
+    .sidebar-edu-sub {
+      font-size: 8px;
+      color: var(--text-muted);
+    }
+
+    /* Main Content Area */
+    .main-content {
+      width: 68%;
+      padding: 28px 24px;
+      display: flex;
+      flex-direction: column;
+      gap: 15px;
+    }
+
+    .section-title {
+      font-size: 11.5px;
+      font-weight: 800;
+      text-transform: uppercase;
+      letter-spacing: 1px;
+      color: var(--primary);
+      border-bottom: 2px solid var(--primary-accent);
+      padding-bottom: 4px;
+      margin-bottom: 8px;
+    }
+
+    .summary {
+      font-size: 9.2px;
+      line-height: 1.48;
+      color: var(--text-muted);
+      text-align: justify;
+    }
+
+    .card {
+      background: var(--white);
+      border-left: 3px solid var(--primary-accent);
+      padding: 4px 0 4px 12px;
+      margin-bottom: 8px;
+    }
+
+    .card-header {
+      display: flex;
+      justify-content: space-between;
+      align-items: flex-start;
+      margin-bottom: 3px;
+    }
+
+    .card-title {
+      font-size: 10.8px;
+      font-weight: 800;
+      color: var(--primary);
+    }
+
+    .card-date {
+      font-size: 8.8px;
+      font-weight: 700;
+      color: var(--primary-accent);
+    }
+
+    .card-subtitle {
+      font-size: 9.5px;
+      font-weight: 700;
+      color: var(--text-muted);
+      margin-bottom: 5px;
+    }
+
+    .card-list {
+      font-size: 9px;
+      line-height: 1.4;
+      color: var(--text-dark);
+      padding-left: 14px;
+    }
+
+    .card-list li {
+      margin-bottom: 3px;
+    }
+
+    /* Print Formatting Rules */
+    @media print {
+      body {
+        background: none;
+        padding: 0;
+      }
+      .page {
+        box-shadow: none;
+        margin: 0;
+        width: 210mm;
+        height: 297mm;
+      }
+      @page {
+        size: A4;
+        margin: 0;
+      }
+    }
+  </style>
+</head>
+<body>
+
+  <!-- ================= PAGE 1 ================= -->
+  <div class="page">
+    
+    <!-- Sidebar Page 1 -->
+    <aside class="sidebar">
+      
+      <!-- REAL IMAGE SPACE CONTAINER -->
+      <div class="photo-container">
+        <img src="/Volumes/Dev/My Documents/My doc/CV new/pp.png" alt="Sajana Karunarathna" class="profile-photo">
+      </div>
+      
+      <div class="profile-block">
+        <h1 class="name">SAJANA<br>KARUNARATHNA</h1>
+        <div class="title-badge">SOFTWARE ENGINEER<div>PHP/BACKEND / FULL-STACK</div></div>
+      </div>
+
+      <!-- PERSONAL / CONTACT INFO -->
+      <div>
+        <h2 class="section-title-sm">Contact</h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-label">Address</span>
+            <span class="contact-value">66/5, Ambagahakanda, Panapola, Kalawana</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Phone</span>
+            <span class="contact-value">+94 71 7100030</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Email</span>
+            <span class="contact-value">sajanaashen@gmail.com</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Social & Profiles</span>
+            <ul class="social-list">
+              <li class="social-item">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M19 3a2 2 0 0 1 2 2v14a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V5a2 2 0 0 1 2-2h14m-.5 15.5v-5.3a3.26 3.26 0 0 0-3.26-3.26c-.85 0-1.84.52-2.28 1.3v-1.11h-2.79v8.37h2.79v-4.93c0-.77.62-1.4 1.39-1.4a1.4 1.4 0 0 1 1.4 1.4v4.93h2.75M6.46 10.9v8.37H9.25V10.9H6.46M7.86 6.72a1.4 1.4 0 1 0 0 2.8 1.4 1.4 0 0 0 0-2.8z"/></svg>
+                <span>sajanaKaru</span>
+              </li>
+              <li class="social-item">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2A10 10 0 0 0 2 12c0 4.42 2.87 8.17 6.84 9.5.5.08.66-.23.66-.5v-1.69c-2.77.6-3.36-1.34-3.36-1.34-.46-1.16-1.11-1.47-1.11-1.47-.91-.62.07-.6.07-.6 1 .07 1.53 1.03 1.53 1.03.87 1.52 2.34 1.07 2.91.83.1-.65.35-1.09.63-1.34-2.22-.25-4.55-1.11-4.55-4.92 0-1.11.38-2 1.03-2.71-.1-.25-.45-1.29.1-2.64 0 0 .84-.27 2.75 1.02.79-.22 1.65-.33 2.5-.33.85 0 1.71.11 2.5.33 1.91-1.29 2.75-1.02 2.75-1.02.55 1.35.2 2.39.1 2.64.65.71 1.03 1.6 1.03 2.71 0 3.82-2.34 4.66-4.57 4.91.36.31.69.92.69 1.85V21c0 .27.16.59.67.5C19.14 20.16 22 16.42 22 12A10 10 0 0 0 12 2z"/></svg>
+                <span>sajanaKaru</span>
+              </li>
+              <li class="social-item">
+                <svg class="social-icon" viewBox="0 0 24 24"><path d="M12 2.04C6.5 2.04 2 6.53 2 12.06C2 17.06 5.66 21.21 10.44 21.96V14.96H7.9V12.06H10.44V9.85C10.44 7.34 11.93 5.96 14.22 5.96C15.31 5.96 16.45 6.15 16.45 6.15V8.62H15.19C13.95 8.62 13.56 9.39 13.56 10.18V12.06H16.34L15.89 14.96H13.56V21.96A10 10 0 0 0 22 12.06C22 6.53 17.5 2.04 12 2.04Z"/></svg>
+                <span>sajanaKaru</span>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </div>
+
+      <!-- EDUCATION QUALIFICATIONS IN SIDEBAR -->
+      <div>
+        <h2 class="section-title-sm">Education</h2>
+        <ul class="sidebar-edu-list">
+          <li class="sidebar-edu-item">
+            <div class="sidebar-edu-title">MSc in Computer Science (Reading)</div>
+            <div class="sidebar-edu-sub">University of Kelaniya</div>
+          </li>
+          <li class="sidebar-edu-item">
+            <div class="sidebar-edu-title">BSc in Physics & Electronics</div>
+            <div class="sidebar-edu-sub">University of Kelaniya</div>
+          </li>
+          <li class="sidebar-edu-item">
+            <div class="sidebar-edu-title">Diploma in Information Technology</div>
+            <div class="sidebar-edu-sub">UCSC</div>
+          </li>
+          <li class="sidebar-edu-item">
+            <div class="sidebar-edu-title">G.C.E. Advanced Level</div>
+            <div class="sidebar-edu-sub">Combined Maths, Physics, ICT</div>
+          </li>
+        </ul>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Backend Development</h2>
+        <div class="skills-group">
+          <span class="skill-tag">PHP</span>
+          <span class="skill-tag">Laravel</span>
+          <span class="skill-tag">CodeIgniter</span>
+          <span class="skill-tag">Node.js</span>
+          <span class="skill-tag">Express.js</span>
+          <span class="skill-tag">RESTful APIs</span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Frontend Development</h2>
+        <div class="skills-group">
+          <span class="skill-tag">JavaScript</span>
+          <span class="skill-tag">Angular</span>
+          <span class="skill-tag">Vue Js</span>
+          <span class="skill-tag">HTML5</span>
+          <span class="skill-tag">CSS3</span>
+          <span class="skill-tag">jQuery</span>
+          <span class="skill-tag">AJAX</span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Databases</h2>
+        <div class="skills-group">
+          <span class="skill-tag">MySQL</span>
+          <span class="skill-tag">MongoDB</span>
+          <span class="skill-tag">Database Design</span>
+          <span class="skill-tag">Query Optimization</span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Core Skills</h2>
+        <div class="skills-group">
+          <span class="skill-tag">SaaS Platforms</span>
+          <span class="skill-tag">Business Applications</span>
+          <span class="skill-tag">Scheduling Systems</span>
+          <span class="skill-tag">Booking Systems</span>
+          <span class="skill-tag">Debugging</span>
+          <span class="skill-tag">Problem Solving</span>
+          <span class="skill-tag">API Design</span>
+          <span class="skill-tag">Production Support</span>
+          <span class="skill-tag">System Integration</span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Integrations</h2>
+        <div class="skills-group">
+          <span class="skill-tag">Google Calendar</span>
+          <span class="skill-tag">iCal</span>
+          <span class="skill-tag">Zoom</span>
+          <span class="skill-tag">PayHere</span>
+          <span class="skill-tag">SMS Gateways</span>
+          <span class="skill-tag">Mailchimp</span>
+          <span class="skill-tag">LovePDF</span>
+          <span class="skill-tag">CraftMyPDF</span>
+          <span class="skill-tag">Third-Party APIs</span>
+        </div>
+      </div>
+
+      <div>
+        <h2 class="section-title-sm">Tools</h2>
+        <div class="skills-group">
+          <span class="skill-tag">Git</span>
+          <span class="skill-tag">Jira</span>
+          <span class="skill-tag">Trello</span>
+          <span class="skill-tag">VS Code</span>
+          <span class="skill-tag">PhpStorm</span>
+          <span class="skill-tag">WebStorm</span>
+        </div>
+      </div>
+
+      <!-- <div>
+        <h2 class="section-title-sm">Volunteering & Leadership</h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-label">Organizing Committee Member</span>
+            <span class="contact-value">Career Guidance Unit, University of Kelaniya</span>
+          </li>
+          <li class="contact-item">
+            <span class="contact-label">Head of Design (Graphics)</span>
+            <span class="contact-value">Adventure Club, University of Kelaniya</span>
+          </li>
+        </ul>
+      </div> -->
+
+      <div>
+        <h2 class="section-title-sm">References</h2>
+        <ul class="contact-list">
+          <li class="contact-item">
+            <span class="contact-value">Available upon request.</span>
+          </li>
+        </ul>
+      </div>
+    </aside>
+
+    <!-- Main Content Page 1 -->
+    <main class="main-content">
+      
+      <section>
+        <h2 class="section-title">PROFILE</h2>
+        <p class="summary">
+          Software Engineer with 5+ years of professional experience designing, developing, and maintaining production web applications and business software solutions. Strong background in PHP backend development, RESTful API development, database design, and third-party integrations, complemented by recent experience developing full-stack SaaS applications using modern web technologies. Experienced in building complex business workflows, scheduling and booking systems, client management platforms, and cloud-based applications for international clients. Strong problem-solving and debugging skills, with a focus on writing maintainable code, understanding complex requirements, resolving production issues, and delivering reliable software solutions.
+        </p>
+      </section>
+
+      <section>
+        <h2 class="section-title">PROFESSIONAL EXPERIENCE</h2>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">SOFTWARE ENGINEER</span>
+            <span class="card-date">October 2025 - Present</span>
+          </div>
+          <div class="card-subtitle">Delenta LTD - United Kingdom (Delenta.com SaaS Coaching Management Platform)</div>
+          <ul class="card-list">
+            <li>Developed and maintained features for a SaaS coaching platform supporting scheduling, client management, video coaching, and business operations.</li>
+            <li>Engineered calendar synchronization between the platform and external calendar services, including Google Calendar and iCal, while using FullCalendar to power scheduling workflows and manage availability, recurring events, time zones, bookings, and appointment changes.</li>
+            <li>Developed Node.js and Express RESTful APIs with MongoDB to support booking workflows, availability management, notifications, and other core platform functionality.</li>
+            <li>Built and enhanced Angular and FullCalendar-based scheduling workflows, enabling coaches to manage recurring availability, appointments, rescheduling, and time-zone-aware schedules.</li>
+            <li>Developed and integrated an iOS WebView application, supporting responsive interfaces and communication between the web application and native iOS functionality.</li>
+            <li>Investigated and resolved complex production issues involving calendar synchronization, time zones, external integrations, booking conflicts, and data consistency.</li>
+            <li>Collaborated with development and product teams to analyze requirements, design technical solutions, implement features, and troubleshoot production issues.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">SOFTWARE ENGINEER</span>
+            <span class="card-date">March 2022 - September 2025</span>
+          </div>
+          <div class="card-subtitle">BLYMO LTD - United Kingdom</div>
+          <ul class="card-list">
+            <li>Developed and maintained production web applications for UK-based clients, translating business requirements into backend functionality, database structures, APIs, and user-facing features.</li>
+            <li>Designed and maintained MySQL database structures and queries, supporting application functionality and evolving business requirements.</li>
+            <li>Developed calendar and meeting-booking functionality using FullCalendar and API integrations to support appointment scheduling and calendar-driven business workflows.</li>
+            <li>Integrated third-party services and APIs, including CraftMyPDF, FullCalendar, and other client-specific services, to extend application functionality.</li>
+            <li>Developed new features and maintained existing applications by investigating defects, implementing fixes, and adapting systems to changing client requirements.</li>
+            <li>Developed reusable backend components and API functionality to support business workflows across multiple client applications.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">SENIOR SOFTWARE ENGINEER PROJECT-BASED</span>
+            <span class="card-date">January 2022 - January 2023</span>
+          </div>
+          <div class="card-subtitle">IAS College GmbH - Germany</div>
+          <ul class="card-list">
+            <li>Developed and maintained an enterprise business application for a German-based client, implementing backend functionality and business requirements throughout the project lifecycle.</li>
+            <li>Designed and maintained database structures and application data workflows to support changing business requirements.</li>
+            <li>Developed new application functionality and enhancements based on client requirements and evolving business processes.</li>
+            <li>Supported junior developers by assisting with technical issues, implementation challenges, and troubleshooting.</li>
+            <li>Investigated application issues and implemented fixes to maintain system reliability and functionality.</li>
+          </ul>
+        </div>
+
+        <div class="card">
+          <div class="card-header">
+            <span class="card-title">SOFTWARE ENGINEER</span>
+            <span class="card-date">January 2021 - February 2022</span>
+          </div>
+          <div class="card-subtitle">Prodesigner.lk (PVT) LTD - Sri Lanka</div>
+          <ul class="card-list">
+            <li>Designed and developed cloud-based web applications across education, logistics, healthcare, and local-government domains.</li>
+            <li>Developed and maintained production systems including tuition and student management, logistics management, COVID-19 control-center, and local-government online service platforms.</li>
+            <li>Developed backend functionality and database components to support business workflows, data management, and application operations.</li>
+            <li>Integrated third-party services including Zoom, PayHere, SMS gateways, LovePDF API, and Mailchimp to extend application capabilities and automate business processes.</li>
+            <li>Implemented web-based workflows that enabled organizations to deliver services and manage operational processes through online platforms.</li>
+          </ul>
+        </div>
+      </section>
+
+      <section>
+        <h2 class="section-title">INTERESTS</h2>
+        <div class="card">
+          <p class="summary">Graphic Design, Community Volunteering, Video Games</p>
+        </div>
+      </section>
+
+    </main>
+
+  </div>
+
+</body>
+</html>
